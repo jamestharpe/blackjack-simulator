@@ -138,7 +138,7 @@ export class Game {
   }
 }
 
-const game = new Game({ numberOfPlayers: 10 });
+const game = new Game({ numberOfPlayers: 2 });
 while (game.state !== GameState.End) {
   game.next();
 }

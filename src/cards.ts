@@ -79,19 +79,26 @@ export const tenOfClubs = new Card(Face.Ten, Suit.Clubs);
 export const tenOfHearts = new Card(Face.Ten, Suit.Hearts);
 export const tenOfDiamonds = new Card(Face.Ten, Suit.Diamonds);
 
+export const jackOfSpades = new Card(Face.Jack, Suit.Spades);
+export const jackOfClubs = new Card(Face.Jack, Suit.Clubs);
+export const jackOfHearts = new Card(Face.Jack, Suit.Hearts);
+export const jackOfDiamonds = new Card(Face.Jack, Suit.Diamonds);
+
+export const queenOfSpades = new Card(Face.Queen, Suit.Spades);
+export const queenOfClubs = new Card(Face.Queen, Suit.Clubs);
+export const queenOfHearts = new Card(Face.Queen, Suit.Hearts);
+export const queenOfDiamonds = new Card(Face.Queen, Suit.Diamonds);
+
+export const kingOfSpades = new Card(Face.King, Suit.Spades);
+export const kingOfClubs = new Card(Face.King, Suit.Clubs);
+export const kingOfHearts = new Card(Face.King, Suit.Hearts);
+export const kingOfDiamonds = new Card(Face.King, Suit.Diamonds);
+
 export class Deck {
   shuffle(): Deck {
-    for (
-      let currentIndex = 0;
-      currentIndex < this.cards.length;
-      currentIndex++
-    ) {
-      const newIndex = Math.floor(
-        Math.random() * (this.cards.length - 1 - 0 + 1) + 0
-      );
-      const card = this.cards[currentIndex];
-      this.cards[currentIndex] = this.cards[newIndex];
-      this.cards[newIndex] = card;
+    for (let i = this.cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
     }
 
     return this;
