@@ -1,5 +1,5 @@
-import { Strategy, Action } from "./strategy";
-import { evaluate, Card } from "../cards";
+import { Card, evaluate } from "../cards/cards";
+import { Action, Strategy } from "./strategy";
 
 export const dealerStrategy: Strategy = (upCard: Card, ...cards: Card[]) => {
   const { isSoft, value } = evaluate(...cards);

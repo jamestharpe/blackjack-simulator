@@ -6,7 +6,9 @@
     "scripts": {
         "build": "tsc",
         "start": "ts-node src/game.ts",
-        "test": "ts-mocha -p tsconfig.json src/**/*.spec.ts"
+        "test": "ts-mocha -p tsconfig.json src/**/*.spec.ts",
+				"lint": "eslint .",
+			"lint:fix": "eslint . --fix"
     },
     "author": "",
     "license": "ISC",

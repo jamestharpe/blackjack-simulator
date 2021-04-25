@@ -1,0 +1,17 @@
+{
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true,
+		"source.organizeImports": true
+	},
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+	],
+	"files.eol": "\n",
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"cSpell.words": [
+		"xstate"
+	]
+}

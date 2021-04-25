@@ -1,4 +1,4 @@
-import { Card } from "../cards";
+import { Card } from "../cards/cards";
 
 export enum Action {
   Hit = "Hit",

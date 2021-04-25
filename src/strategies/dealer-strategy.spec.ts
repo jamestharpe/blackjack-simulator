@@ -1,12 +1,13 @@
 import expect from "expect";
-import { dealerStrategy } from "./dealer-strategy";
 import {
-  aceOfSpades,
-  tenOfSpades,
-  twoOfSpades,
-  sevenOfSpades,
-  sixOfSpades,
-} from "../cards";
+	aceOfSpades,
+
+
+	sevenOfSpades,
+	sixOfSpades, tenOfSpades,
+	twoOfSpades
+} from "../cards/cards";
+import { dealerStrategy } from "./dealer-strategy";
 import { Action } from "./strategy";
 
 describe("Dealer Strategy", () => {

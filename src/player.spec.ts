@@ -1,5 +1,5 @@
-import { Player, Hand } from "./player";
 import expect from "expect";
+import { Player } from "./player";
 
 describe("Player", () => {
   it("Creates", () => {

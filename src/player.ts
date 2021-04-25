@@ -1,16 +1,16 @@
-import { Card, evaluate, BLACKJACK } from "./cards";
-import { Strategy, Action } from "./strategies/strategy";
-import { dealerStrategy } from "./strategies/dealer-strategy";
+import { BLACKJACK, Card, evaluate } from "./cards/cards";
 import { basicStrategy } from "./strategies/basic-strategy";
+import { dealerStrategy } from "./strategies/dealer-strategy";
+import { Action, Strategy } from "./strategies/strategy";
 
 export class Hand {
   constructor(public wager: number = 0, public cards: Card[] = []) {}
 
-  get value() {
+  get value(): number {
     return evaluate(...this.cards).value;
   }
 
-  get busted() {
+  get busted(): boolean {
     return this.value > BLACKJACK;
   }
 }
@@ -18,17 +18,18 @@ export class Hand {
 export class Player {
   handIndex = 0;
   hands: Hand[] = [new Hand()];
+	
   constructor(
     public name: string = "Player",
     public bank: number = 0,
     public strategy: Strategy = basicStrategy
   ) {}
 
-  get hand() {
+  get hand(): Hand {
     return this.hands[this.handIndex];
   }
 
-  nextAction(upCard: Card) {
+  nextAction(upCard: Card): Action {
     const result = this.strategy(upCard, ...this.hand.cards);
     if (result === Action.Stay || result === Action.DoubleDown)
       this.handIndex++;
@@ -36,7 +37,7 @@ export class Player {
     return result;
   }
 
-  settle() {
+  settle(): void {
     this.bank += this.hands
       .map((hand) => hand.wager)
       .reduce((prev, curr) => prev + curr, 0);
@@ -51,7 +52,7 @@ export class Dealer extends Player {
     super(name, 0, dealerStrategy);
   }
 
-  get upCard() {
+  get upCard(): Card {
     return this.hand.cards[0];
   }
 }

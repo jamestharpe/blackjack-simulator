@@ -19,7 +19,7 @@ describe("Deck of Cards", () => {
 
   describe("shuffle", () => {
     const deck = new Deck();
-    const cards = deck.cards.map((c) => new Card(c.face, c.suit));
+    const cards = deck.cards.map((c) => c); // Copy
     expect(deck.shuffle().cards).not.toEqual(cards);
   });
 });

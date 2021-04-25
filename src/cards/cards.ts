@@ -22,9 +22,9 @@ export enum Suit {
 }
 
 export class Card {
-  constructor(public face: Face, public suit: Suit) {}
+  constructor(public readonly face: Face, public readonly suit: Suit) {}
 
-  toString() {
+  toString(): string {
     return this.face + " of " + this.suit;
   }
 }
@@ -117,7 +117,7 @@ export class Deck {
 
 export const BLACKJACK = 21;
 
-export function evaluate(...cards: Card[]) {
+export function evaluate(...cards: Card[]): { value: number, isSoft: boolean } {
   const values = {
     Ace: 1,
     Two: 2,

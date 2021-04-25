@@ -1,37 +1,75 @@
 import expect from "expect";
-import { basicStrategy } from "./basic-strategy";
 import {
-  aceOfClubs,
-  aceOfSpades,
-  aceOfDiamonds,
-  aceOfHearts,
-  eightOfHearts,
-  eightOfDiamonds,
-  twoOfDiamonds,
-  twoOfHearts,
-  twoOfSpades,
-  threeOfSpades,
-  sixOfSpades,
-  sevenOfSpades,
-  fourOfSpades,
-  fiveOfSpades,
-  nineOfDiamonds,
-  nineOfHearts,
-  eightOfSpades,
-  nineOfSpades,
-  threeOfHearts,
-  threeOfDiamonds,
-  fourOfDiamonds,
-  fourOfHearts,
-  sixOfHearts,
-  sixOfDiamonds,
-  sevenOfHearts,
-  sevenOfDiamonds,
-  fiveOfDiamonds,
-  fiveOfHearts,
-} from "../cards";
-import { Action } from "./strategy";
+	aceOfDiamonds,
+	aceOfHearts, aceOfSpades,
 
+
+
+	eightOfDiamonds, eightOfHearts,
+
+
+
+
+
+	eightOfSpades,
+
+
+
+
+
+
+
+
+
+	fiveOfDiamonds,
+	fiveOfHearts, fiveOfSpades,
+
+
+
+
+
+
+	fourOfDiamonds,
+	fourOfHearts, fourOfSpades,
+
+	nineOfDiamonds,
+	nineOfHearts,
+
+	nineOfSpades,
+
+
+
+
+
+
+
+	sevenOfDiamonds, sevenOfHearts, sevenOfSpades,
+
+
+
+
+
+
+
+
+
+
+
+	sixOfDiamonds, sixOfHearts, sixOfSpades,
+
+
+
+
+
+
+
+
+	threeOfDiamonds, threeOfHearts, threeOfSpades, twoOfDiamonds,
+	twoOfHearts,
+	twoOfSpades
+} from "../cards/cards";
+import { basicStrategy } from "./basic-strategy";
+import { Action } from "./strategy";
 describe("Basic Strategy", () => {
   // Splits
 
