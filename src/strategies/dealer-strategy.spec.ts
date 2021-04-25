@@ -1,8 +1,6 @@
 import expect from "expect";
 import {
 	aceOfSpades,
-
-
 	sevenOfSpades,
 	sixOfSpades, tenOfSpades,
 	twoOfSpades

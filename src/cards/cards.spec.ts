@@ -1,14 +1,11 @@
 import expect from "expect";
 import {
-  Deck,
-  Card,
-  Face,
-  Suit,
-  evaluate,
-  aceOfSpades,
-  tenOfClubs,
-  twoOfSpades,
-  BLACKJACK,
+	aceOfSpades,
+	BLACKJACK, Card, Deck,
+	evaluate, Face,
+	Suit,
+	tenOfClubs,
+	twoOfSpades
 } from "./cards";
 
 describe("Deck of Cards", () => {
@@ -20,7 +17,10 @@ describe("Deck of Cards", () => {
   describe("shuffle", () => {
     const deck = new Deck();
     const cards = deck.cards.map((c) => c); // Copy
-    expect(deck.shuffle().cards).not.toEqual(cards);
+	
+	it("shuffles the cards", () => {
+		expect(deck.shuffle().cards).not.toEqual(cards);
+	})
   });
 });
 
