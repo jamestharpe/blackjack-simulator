@@ -1,4 +1,5 @@
-import { Card, evaluate, Face } from "../cards";
+import { Card, Face } from "../cards";
+import { evaluate } from "../rules";
 import { Action, Strategy } from "./strategy";
 
 // Based on https://www.onlinecasinohound.com/wp-content/uploads/2012/04/blackjack-strategy-print.jpg
@@ -15,9 +16,7 @@ function shouldSplit(upCard: Card, ...cards: Card[]) {
 		// Always Split Aces
 		c1.face === Face.Ace ||
 		// Split twos and threes against two through seven
-		((c1.face === Face.Two || c1.face === Face.Three) &&
-			upCardValue >= 2 &&
-			upCardValue <= 7) ||
+		((c1.face === Face.Two || c1.face === Face.Three) && upCardValue >= 2 && upCardValue <= 7) ||
 		// Split fours against five or six
 		(c1.face === Face.Four && upCardValue >= 5 && upCardValue <= 6) ||
 		// Split sixes against two through six
@@ -27,8 +26,7 @@ function shouldSplit(upCard: Card, ...cards: Card[]) {
 		// Always Split Eights
 		c1.face === Face.Eight ||
 		// Split nines against everything except seven, ten, and ace
-		(c1.face === Face.Nine &&
-			![Face.Seven, Face.Ten, Face.Ace].some((face) => face === upCard.face))
+		(c1.face === Face.Nine && ![Face.Seven, Face.Ten, Face.Ace].some((face) => face === upCard.face))
 	);
 }
 

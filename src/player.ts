@@ -1,58 +1,52 @@
-import { BLACKJACK, Card, evaluate } from "./cards";
+import { Card } from "./cards";
+import { BLACKJACK, evaluate } from "./rules";
 import { basicStrategy } from "./strategies/basic-strategy";
 import { dealerStrategy } from "./strategies/dealer-strategy";
 import { Action, Strategy } from "./strategies/strategy";
 
 export class Hand {
-  constructor(public wager: number = 0, public cards: Card[] = []) {}
+	constructor(public wager: number = 0, public cards: Card[] = []) {}
 
-  get value(): number {
-    return evaluate(...this.cards).value;
-  }
+	get value(): number {
+		return evaluate(...this.cards).value;
+	}
 
-  get busted(): boolean {
-    return this.value > BLACKJACK;
-  }
+	get busted(): boolean {
+		return this.value > BLACKJACK;
+	}
 }
 
 export class Player {
-  handIndex = 0;
-  hands: Hand[] = [new Hand()];
-	
-  constructor(
-    public name: string = "Player",
-    public bank: number = 0,
-    public strategy: Strategy = basicStrategy
-  ) {}
+	handIndex = 0;
+	hands: Hand[] = [new Hand()];
 
-  get hand(): Hand {
-    return this.hands[this.handIndex];
-  }
+	constructor(public name: string = "Player", public bank: number = 0, public strategy: Strategy = basicStrategy) {}
 
-  nextAction(upCard: Card): Action {
-    const result = this.strategy(upCard, ...this.hand.cards);
-    if (result === Action.Stay || result === Action.DoubleDown)
-      this.handIndex++;
+	get hand(): Hand {
+		return this.hands[this.handIndex];
+	}
 
-    return result;
-  }
+	nextAction(upCard: Card): Action {
+		const result = this.strategy(upCard, ...this.hand.cards);
+		if (result === Action.Stay || result === Action.DoubleDown) this.handIndex++;
 
-  settle(): void {
-    this.bank += this.hands
-      .map((hand) => hand.wager)
-      .reduce((prev, curr) => prev + curr, 0);
-    console.log(`${this.name} has $${this.bank}`);
-    this.hands = [new Hand()];
-    this.handIndex = 0;
-  }
+		return result;
+	}
+
+	settle(): void {
+		this.bank += this.hands.map((hand) => hand.wager).reduce((prev, curr) => prev + curr, 0);
+		console.log(`${this.name} has $${this.bank}`);
+		this.hands = [new Hand()];
+		this.handIndex = 0;
+	}
 }
 
 export class Dealer extends Player {
-  constructor(public name: string = "Dealer") {
-    super(name, 0, dealerStrategy);
-  }
+	constructor(public name: string = "Dealer") {
+		super(name, 0, dealerStrategy);
+	}
 
-  get upCard(): Card {
-    return this.hand.cards[0];
-  }
+	get upCard(): Card {
+		return this.hand.cards[0];
+	}
 }

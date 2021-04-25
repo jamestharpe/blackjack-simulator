@@ -1,6 +1,7 @@
-import { BLACKJACK, Card, evaluate } from "./cards";
+import { Card } from "./cards";
 import Deck from "./cards/deck";
 import { Dealer, Hand, Player } from "./player";
+import { BLACKJACK, evaluate } from "./rules";
 import { Action } from "./strategies/strategy";
 
 export enum GameState {

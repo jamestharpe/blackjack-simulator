@@ -1,9 +1,10 @@
-import { Card, evaluate } from "../cards";
+import { Card } from "../cards";
+import { evaluate } from "../rules";
 import { Action, Strategy } from "./strategy";
 
 export const dealerStrategy: Strategy = (upCard: Card, ...cards: Card[]) => {
-  const { isSoft, value } = evaluate(...cards);
-  if (value < 17) return Action.Hit;
-  if (isSoft && value === 17) return Action.Hit;
-  return Action.Stay;
+	const { isSoft, value } = evaluate(...cards);
+	if (value < 17) return Action.Hit;
+	if (isSoft && value === 17) return Action.Hit;
+	return Action.Stay;
 };

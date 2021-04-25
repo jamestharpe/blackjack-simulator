@@ -1,5 +1,6 @@
 import expect from "expect";
-import { aceOfSpades, BLACKJACK, evaluate, tenOfClubs, twoOfSpades } from ".";
+import { BLACKJACK, evaluate } from ".";
+import { aceOfSpades, tenOfClubs, twoOfSpades } from "../cards";
 
 describe("Evaluate", () => {
 	it("evaluates", () => {
