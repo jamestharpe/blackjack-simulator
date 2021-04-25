@@ -1,6 +1,6 @@
-import { AnyEventObject, interpret, Interpreter } from "xstate";
+import { interpret, Interpreter } from "xstate";
 import { Card } from ".";
-import { DeckContext, DeckMachine, DeckSettings } from "./machine";
+import { DeckContext, DeckEvent, DeckMachine, DeckSettings } from "./machine";
 
 export default class Deck {
 	shuffle(): Deck {
@@ -22,7 +22,7 @@ export default class Deck {
 	private service: Interpreter<
 		DeckContext,
 		any,
-		AnyEventObject,
+		DeckEvent,
 		{
 			value: any;
 			context: DeckContext;

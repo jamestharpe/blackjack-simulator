@@ -1,6 +1,12 @@
-import { assign, Machine } from "xstate";
+import { assign, EventObject, Machine } from "xstate";
 import { Card, default as allCards } from ".";
 import shuffle from "../utils/shuffle";
+
+export type DeckEventId = "SHUFFLE" | "DISCARD";
+
+export interface DeckEvent extends EventObject {
+	type: DeckEventId;
+}
 
 export interface DeckSettings {
 	deckCount: number;
@@ -12,7 +18,7 @@ export interface DeckContext {
 	readonly discarded?: Card;
 }
 
-export const DeckMachine = Machine<DeckContext>(
+export const DeckMachine = Machine<DeckContext, DeckEvent>(
 	{
 		initial: "initializing",
 		strict: true,
