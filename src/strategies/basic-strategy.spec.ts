@@ -16,7 +16,7 @@ import {
 	threeOfDiamonds, threeOfHearts, threeOfSpades, twoOfDiamonds,
 	twoOfHearts,
 	twoOfSpades
-} from "../cards/cards";
+} from "../cards";
 import { basicStrategy } from "./basic-strategy";
 import { Action } from "./strategy";
 

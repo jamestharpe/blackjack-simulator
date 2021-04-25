@@ -4,7 +4,7 @@ import {
 	sevenOfSpades,
 	sixOfSpades, tenOfSpades,
 	twoOfSpades
-} from "../cards/cards";
+} from "../cards";
 import { dealerStrategy } from "./dealer-strategy";
 import { Action } from "./strategy";
 

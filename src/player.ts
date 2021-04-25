@@ -1,4 +1,4 @@
-import { BLACKJACK, Card, evaluate } from "./cards/cards";
+import { BLACKJACK, Card, evaluate } from "./cards";
 import { basicStrategy } from "./strategies/basic-strategy";
 import { dealerStrategy } from "./strategies/dealer-strategy";
 import { Action, Strategy } from "./strategies/strategy";

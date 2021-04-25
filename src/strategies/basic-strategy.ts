@@ -1,4 +1,4 @@
-import { Card, evaluate, Face } from "../cards/cards";
+import { Card, evaluate, Face } from "../cards";
 import { Action, Strategy } from "./strategy";
 
 // Based on https://www.onlinecasinohound.com/wp-content/uploads/2012/04/blackjack-strategy-print.jpg

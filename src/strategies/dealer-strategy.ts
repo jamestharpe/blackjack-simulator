@@ -1,4 +1,4 @@
-import { Card, evaluate } from "../cards/cards";
+import { Card, evaluate } from "../cards";
 import { Action, Strategy } from "./strategy";
 
 export const dealerStrategy: Strategy = (upCard: Card, ...cards: Card[]) => {
