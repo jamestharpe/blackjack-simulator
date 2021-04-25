@@ -4,6 +4,7 @@ import { DeckContext, DeckMachine, DeckSettings } from "./machine";
 
 export default class Deck {
 	shuffle(): Deck {
+		if (this.service.state.done) throw new Error("Cannot discard from empty deck");
 		this.service.send("SHUFFLE");
 		return this;
 	}
