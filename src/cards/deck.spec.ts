@@ -8,7 +8,6 @@ describe("Deck of Cards", () => {
 
 		beforeEach(() => {
 			deck = new Deck();
-			console.log("Deck Created");
 		});
 
 		it("When initialized, it has 52 cards by default", () => {
