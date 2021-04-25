@@ -1,6 +1,6 @@
 import { interpret, Interpreter } from "xstate";
 import { Card } from ".";
-import { DeckContext, DeckEvent, DeckMachine, DeckSettings } from "./machine";
+import deckMachine, { DeckContext, DeckEvent, DeckSettings } from "./deck-machine";
 
 export default class Deck {
 	shuffle(): Deck {
@@ -30,6 +30,6 @@ export default class Deck {
 	>;
 
 	constructor(settings: DeckSettings = { deckCount: 1 }) {
-		this.service = interpret(DeckMachine.withContext({ ...DeckMachine.context, ...{ settings } })).start();
+		this.service = interpret(deckMachine.withContext({ ...deckMachine.context, ...{ settings } })).start();
 	}
 }

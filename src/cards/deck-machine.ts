@@ -18,7 +18,7 @@ export interface DeckContext {
 	readonly discarded?: Card;
 }
 
-export const DeckMachine = Machine<DeckContext, DeckEvent>(
+const deckMachine = Machine<DeckContext, DeckEvent>(
 	{
 		initial: "initializing",
 		strict: true,
@@ -77,3 +77,5 @@ export const DeckMachine = Machine<DeckContext, DeckEvent>(
 		},
 	}
 );
+
+export default deckMachine;
