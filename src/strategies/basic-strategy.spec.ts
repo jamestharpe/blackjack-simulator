@@ -2,74 +2,24 @@ import expect from "expect";
 import {
 	aceOfDiamonds,
 	aceOfHearts, aceOfSpades,
-
-
-
 	eightOfDiamonds, eightOfHearts,
-
-
-
-
-
 	eightOfSpades,
-
-
-
-
-
-
-
-
-
 	fiveOfDiamonds,
 	fiveOfHearts, fiveOfSpades,
-
-
-
-
-
-
 	fourOfDiamonds,
 	fourOfHearts, fourOfSpades,
-
 	nineOfDiamonds,
 	nineOfHearts,
-
 	nineOfSpades,
-
-
-
-
-
-
-
 	sevenOfDiamonds, sevenOfHearts, sevenOfSpades,
-
-
-
-
-
-
-
-
-
-
-
 	sixOfDiamonds, sixOfHearts, sixOfSpades,
-
-
-
-
-
-
-
-
 	threeOfDiamonds, threeOfHearts, threeOfSpades, twoOfDiamonds,
 	twoOfHearts,
 	twoOfSpades
 } from "../cards/cards";
 import { basicStrategy } from "./basic-strategy";
 import { Action } from "./strategy";
+
 describe("Basic Strategy", () => {
   // Splits
 
