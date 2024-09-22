@@ -2,18 +2,18 @@
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	"editor.codeActionsOnSave": {
-		"source.fixAll": true,
-		"source.organizeImports": true,
+		"source.fixAll": "explicit",
+		"source.organizeImports": "explicit"
 	},
 	"editor.formatOnSave": true,
-	"eslint.validate": [
-		"javascript",
-		"typescript",
-	],
+	"eslint.validate": ["javascript", "typescript"],
 	"files.eol": "\n",
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"cSpell.words": [
 		"cond",
 		"xstate"
-	]
+	],
+	"explorer.fileNesting.patterns": {
+		"*.ts": "${capture}.js,${capture}.spec.ts,"
+	}
 }

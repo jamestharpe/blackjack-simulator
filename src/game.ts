@@ -1,5 +1,5 @@
 import { Card } from "./cards";
-import Deck from "./cards/deck";
+// import Deck from "./cards/deck";
 import { Dealer, Hand, Player } from "./player";
 import { BLACKJACK, evaluate } from "./rules";
 import { Action } from "./strategies/strategy";
@@ -17,7 +17,7 @@ export interface GameConfig {
 }
 
 export class Game {
-	deck = new Deck().shuffle();
+	// deck = new Deck().shuffle();
 	players: Player[];
 	playerIndex = 0;
 	state: GameState = GameState.Deal;
@@ -51,7 +51,7 @@ export class Game {
 	private [GameState.Deal]() {
 		if (this.state !== GameState.Deal) throw new Error(`Unexpected Game State: ${this.state}`);
 
-		this.players.forEach((player) => player.hand.cards.push(<Card>this.deck.discard(), <Card>this.deck.discard()));
+		// this.players.forEach((player) => player.hand.cards.push(<Card>this.deck.discard(), <Card>this.deck.discard()));
 		this.playerIndex = 0;
 		this.state = GameState.Play;
 		return this;
@@ -61,7 +61,7 @@ export class Game {
 		if (!this.player) throw new Error(`There is no current player`);
 		if (hand.value > BLACKJACK) throw new Error(`Cannot hit a hand with a value greater than ${BLACKJACK}`);
 
-		hand.cards.push(<Card>this.deck.discard());
+		// hand.cards.push(<Card>this.deck.discard());
 		return this.player.hand;
 	}
 
@@ -111,7 +111,7 @@ export class Game {
 	private [GameState.Settle]() {
 		// TODO: Write this method
 		this.players.forEach((player) => player.settle());
-		this.state = this.deck.cards.length > this.minimumCards ? GameState.Deal : GameState.End;
+		// this.state = this.deck.cards.length > this.minimumCards ? GameState.Deal : GameState.End;
 
 		this.playerIndex = 0;
 		console.log(`Game settled\n`);
@@ -124,7 +124,7 @@ export class Game {
 	}
 }
 
-const game = new Game({ numberOfPlayers: 2 });
-while (game.state !== GameState.End) {
-	game.next();
-}
+// const game = new Game({ numberOfPlayers: 2 });
+// while (game.state !== GameState.End) {
+// 	// game.next();
+// }

@@ -21,27 +21,29 @@ export enum Suit {
 	Spades = "Spades",
 }
 
-export interface Card {
+export type Card = {
 	readonly face: Face;
 	readonly suit: Suit;
-	toString(): string;
-}
+	readonly toString: () => string;
+	readonly is: (card: Card) => boolean;
+};
 
 class CardImpl implements Card {
 	constructor(public readonly face: Face, public readonly suit: Suit) {}
 
-	toString(): string {
-		return this.face + " of " + this.suit;
-	}
+	readonly toString = () => `${this.face} of ${this.suit}`;
+	readonly is = (card: Card) => this.face === card.face && this.suit === card.suit;
 }
 
-const cards: ReadonlyArray<Card> = Object.values(Face)
+const CARDS: ReadonlyArray<Card> = Object.values(Face)
 	.map((face) => Object.values(Suit).map((suit) => new CardImpl(face, suit)))
 	.reduce((result, cards) => result.concat(cards), []);
 
-export default cards;
+export const CARDS_PER_DECK = CARDS.length;
 
-export const card = (face: Face, suit: Suit) => cards.find((c) => c.face === face && c.suit === suit) as CardImpl;
+export default CARDS;
+
+export const card = (face: Face, suit: Suit): Card => CARDS.find((c) => c.face === face && c.suit === suit) as Card;
 
 export const aceOfSpades = card(Face.Ace, Suit.Spades);
 export const aceOfClubs = card(Face.Ace, Suit.Clubs);
